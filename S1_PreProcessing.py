@@ -105,7 +105,7 @@ class MEPreprocessor:
         self.monitoring_elements = self.monitoring_elements.drop(columns=img_cols)
 
         for id in ring_out_ids:
-            good_flag  = csc.main(self.monitoring_elements, self.me_name, ring_id=id, name=f"img_out{id}")
+            good_flag  = csc.main(self.monitoring_elements, self.me_name, ring_id=id, num_sectors=self.chamber_params["ring_out"][id][1] ,name=f"img_out{id}")
             if total_good_flags is None:
                     total_good_flags = good_flag
             else:
