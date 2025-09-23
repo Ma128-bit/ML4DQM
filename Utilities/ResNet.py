@@ -15,7 +15,7 @@ def train(df: pd.DataFrame, output_path: str, data_name: str, batch_size: int = 
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     while True:
-        trainer = ModelTrainer(df, data_name)
+        trainer = ModelTrainer(df, data_name, batch_size, epochs, learning_rate, patience, threshold)
         if trainer.train() != -1:
             break
         del trainer
